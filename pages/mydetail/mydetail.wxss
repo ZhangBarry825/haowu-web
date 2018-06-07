@@ -62,6 +62,7 @@ page::-webkit-scrollbar {
   text-align: center;
 }
 .images .iamge-item {
+  width: 95%;
   max-width: 100%;
 }
 .bottom {

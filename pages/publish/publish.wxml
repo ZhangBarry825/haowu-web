@@ -49,7 +49,7 @@
     </view>
 
     <view class="bottomm">
-        发布即接受
-        <navigator hover-class="none" url="#" class="a">《钦家平台内容分享声明》</navigator>
+        <!--发布即接受-->
+        <!--<navigator hover-class="none" url="#" class="a">《钦家平台内容分享声明》</navigator>-->
     </view>
 </view>

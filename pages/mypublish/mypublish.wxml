@@ -1,12 +1,12 @@
 <!--pages/home/test.wxml-->
 <view class="page">
+    <view class="toggle">
+        <view class="now" wx:if="{{toggle}}">我的送物</view>
+        <view wx:if="{{!toggle}}" bindtap="changeToggle">我的送物</view>
+        <view wx:if="{{toggle}}" bindtap="changeToggle">我的换物</view>
+        <view class="now" wx:if="{{!toggle}}">我的换物</view>
+    </view>
     <scroll-view class='content' scroll-y bindscrolltolower="Gobottom">
-        <view class="toggle">
-            <view class="now" wx:if="{{toggle}}">我的换物</view>
-            <view wx:if="{{!toggle}}" bindtap="changeToggle">我的换物</view>
-            <view wx:if="{{toggle}}" bindtap="changeToggle">我的送物</view>
-            <view class="now" wx:if="{{!toggle}}">我的送物</view>
-        </view>
         <view class='item' wx:for="{{data}}" wx:for-item="item" wx:key="index">
             <view class='item-top' wx:if="{{item.type==1}}">
                 <view hover-class="none" class='item-top-info'>
@@ -38,31 +38,31 @@
                 <view class="content-pic">
                     <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box one"
                           wx:if="{{item.imgsCount==1}}">
-                        <image mode="aspectFit" class="imageOne" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>
+                        <image mode="aspectFit" class="imageOne" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>
                     </view>
                     <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box two"
                           wx:if="{{item.imgsCount==2}}">
-                        <view class="imageTwo" style="background-image:url('{{image+'/360'}}')"
+                        <view class="imageTwo" style="background-image:url('{{image+'/0'}}')"
                               wx:if="{{image!=''}}"></view>
-                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     </view>
                     <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box three"
                           wx:if="{{item.imgsCount==3}}">
-                        <view class="imageThree" style="background-image:url('{{image+'/360'}}')"
+                        <view class="imageThree" style="background-image:url('{{image+'/0'}}')"
                               wx:if="{{image!=''}}"></view>
-                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     </view>
                     <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box four"
                           wx:if="{{item.imgsCount==4}}">
-                        <view class="imageFour" style="background-image:url('{{image+'/360'}}')"
+                        <view class="imageFour" style="background-image:url('{{image+'/0'}}')"
                               wx:if="{{image!=''}}"></view>
-                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     </view>
                     <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box more"
                           wx:if="{{item.imgsCount>4}}">
-                        <view class="imageMore" style="background-image:url('{{image+'/360'}}')"
+                        <view class="imageMore" style="background-image:url('{{image+'/0'}}')"
                               wx:if="{{image!=''}}"></view>
-                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     </view>
                 </view>
                 <view class="content-text">{{item.content}}</view>

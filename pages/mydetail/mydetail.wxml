@@ -18,7 +18,7 @@
         {{data.dynamic.content}}
     </view>
     <view class="images">
-        <image class="iamge-item" mode="widthFix" wx:if="{{item!='/0'}}" wx:for="{{data.dynamic.imgs}}" wx:for-item="item" wx:for-index="index" src="{{item}}" bindtap="previewImage" data-src="{{item}}"></image>
+        <image class="iamge-item" mode="widthFix" wx:if="{{item!='/0'}}" wx:key="key" wx:for="{{data.dynamic.imgs}}" wx:for-item="item" wx:for-index="index" src="{{item}}" bindtap="previewImage" data-src="{{item}}"></image>
     </view>
     <view class="bottom">
         <wiew class="address">{{data.dynamic.address}}</wiew>
@@ -40,50 +40,37 @@
         <view class="line">评论</view>
 
 
+        <view class="item" wx:for="{{data.comments}}" wx:key="key" wx:for-item="item" wx:for-index="index">
 
-        <view class="item" wx:for="{{data.comments}}" wx:for-item="item">
-
-            <view class="first">
-                <view class="pic" style="background-image:url('{{item.avatarUrl}}')"></view>
-                <view class="info" bindtap="returnComm" data-token="{{item.otherToken}}" data-name="{{item.user_Name}}"data-id="{{item.id}}">
-                    <view class="name">{{item.user_Name}}</view>
+            <view class="first noLine" wx:if="{{index==0}}" bindtap="returnComm" data-token="{{item.otherToken}}" data-name="{{item.otherName}}"data-id="{{item.id}}" data-avatar="{{item.otherAvatarUrl}}">
+                <view class="pic" style="background-image:url('{{item.otherAvatarUrl}}')"></view>
+                <view class="info" >
+                    <view class="name">{{item.otherName}}</view>
                     <view class="content">
                         {{item.content}}
                     </view>
                     <view class="time">{{item.hasCommented}}</view>
                 </view>
             </view>
-
-            <view class="respond" wx:for="{{item.children}}" wx:for-item="child" >
-                <view class="pic" style="background-image:url('{{child.avatarUrl}}')"></view>
-                <view class="info" bindtap="returnComm" data-token="{{child.otherToken}}" data-name="{{child.user_Name}}" data-id="{{item.id}}">
-                    <view class="name">{{child.user_Name}}</view>
-                    <view class="content">回复@{{child.otherName}}：{{child.content}}</view>
+            <view class="first" wx:if="{{index!=0}}" bindtap="returnComm" data-token="{{item.otherToken}}" data-name="{{item.otherName}}"data-id="{{item.id}}" data-avatar="{{item.otherAvatarUrl}}">
+                <view class="pic" style="background-image:url('{{item.otherAvatarUrl}}')"></view>
+                <view class="info" bindtap="returnComm" data-token="{{item.otherToken}}" data-name="{{item.user_Name}}"data-id="{{item.id}}">
+                    <view class="name">{{item.otherName}}</view>
+                    <view class="content">
+                        {{item.content}}
+                    </view>
+                    <view class="time">{{item.hasCommented}}</view>
+                </view>
+            </view>
+            <view class="respond" wx:for="{{item.children}}" wx:key="key" wx:for-item="child"  bindtap="returnComm" data-token="{{child.otherToken}}" data-name="{{child.otherName}}" data-id="{{item.id}}"  data-avatar="{{item.otherAvatarUrl}}">
+                <view class="pic" style="background-image:url('{{child.otherAvatarUrl}}')"></view>
+                <view class="info" >
+                    <view class="name">{{child.otherName}}</view>
+                    <view class="content">回复@{{child.user_Name}}：{{child.content}}</view>
                     <view class="time">{{child.hasCommented}}</view>
                 </view>
             </view>
         </view>
-
-        <!--<view class="respond">-->
-        <!--<view class="pic" style="background-image:url('http://zb.luckyme.com.cn/pic01.png')"></view>-->
-        <!--<view class="info">-->
-        <!--<view class="name">大韩1988</view>-->
-        <!--<view class="content">回复@九妹儿：点赞，加十字评论哦</view>-->
-        <!--<view class="time">50分钟前</view>-->
-        <!--</view>-->
-        <!--</view>-->
-
-
-        <!--<view class="item">-->
-        <!--<view class="pic" style="background-image:url('http://zb.luckyme.com.cn/pic1.png')"></view>-->
-        <!--<view class="info">-->
-        <!--<view class="name">九妹儿</view>-->
-        <!--<view class="content">喜欢，会是我的吗？留言+1</view>-->
-        <!--<view class="time">2小时前</view>-->
-        <!--</view>-->
-        <!--</view>-->
-
-
     </view>
 
 

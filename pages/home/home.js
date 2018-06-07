@@ -9,7 +9,8 @@ Page({
     data: {
         toggle: 0,
         data: [],//文章列表
-        last: ''
+        last: '',
+        images: {}
     },
     onPullDownRefresh: function () {
         wx.stopPullDownRefresh()
@@ -22,9 +23,9 @@ Page({
             last: 0
         });
     },
-    clearStorage: function () {
-        wx.clearStorage()
-    },
+    // clearStorage: function () {
+    //     wx.clearStorage()
+    // },
     Gobottom: function () {
         this.openLoading('数据加载中')
         console.log('到达底部')
@@ -126,7 +127,31 @@ Page({
         });
     },
 
+    imageLoad: function (e) {
+        console.log(e.detail);
+        var $width = e.detail.width,    //获取图片真实宽度
+            $height = e.detail.height,
+            ratio = $width / $height; //图片的真实宽高比例
+        if (ratio>1){
+            var viewWidth = 690,
+                viewHeight = 690 / ratio;
+        }else{
+            var viewWidth = 450,
+                viewHeight = 450 / ratio;
+        }
+        //计算的高度值
+        var image = this.data.images;
 
+        console.log(e.target)
+        //将图片的datadata-index作为image对象的key,然后存储图片的宽高值
+        image[e.target.dataset.index] = {
+            width: viewWidth,
+            height: viewHeight
+        }
+        this.setData({
+            images: image
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

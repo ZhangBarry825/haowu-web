@@ -9,34 +9,34 @@
     </view>
     <view class="hr"></view>
     <scroll-view class="content" scroll-y bindscrolltolower="Gobottom">
-        <view class="item-box" wx:for="{{data}}" wx:for-item="item" wx:if="{{toggle==true}}">
+        <view class="item-box" wx:for="{{data}}"wx:key=""  wx:for-item="item" wx:if="{{toggle==true}}">
             <view class="hr"></view>
             <view class="item">
                 <view class="left">
-                    <navigator hover-class="none" url="/pages/ta/ta?token={{item.otherToken}}" class="pic" style="background-image:url('{{item.avatarUrl}}')"></navigator>
-                    <navigator hover-class="none" url="/pages/mydetail/mydetail?dynamicId={{item.dynamicId}}" class="info">
+                    <navigator hover-class="none" url="/pages/ta/ta?token={{item.otherToken}}" class="pic" style="background-image:url('{{item.otherAvatarUrl}}')"></navigator>
+                    <view  bindtap="openUrl" data-dynamicId="{{item.dynamicId}}" class="info">
                         <view class="top">
-                            <text>{{item.name}}</text>
+                            <text>{{item.otherName}}</text>
                             <image class="sex" src="../images/nv.png" wx:if="{{item.gender==2}}"></image>
                             <image class="sex" src="../images/nan.png" wx:if="{{item.gender==1}}"></image>
-                            <text>评论了你的好物</text>
+                            <text>评论了你</text>
                         </view>
                         <view class="bottom">
                             {{item.createTime}}
                         </view>
-                    </navigator>
+                    </view>
                 </view>
                 <!--<view class="right" style="background-image:url('http://zb.luckyme.com.cn/pic3.png')"></view>-->
             </view>
         </view>
-        <view class="item-box" wx:for="{{data}}" wx:for-item="item" wx:if="{{toggle!=true}}">
+        <view class="item-box" wx:for="{{data}}"wx:key=""  wx:for-item="item" wx:if="{{toggle!=true}}">
             <view class="hr"></view>
             <view class="item">
                 <view class="left">
-                    <navigator hover-class="none" url="/pages/ta/ta?token={{item.otherToken}}" class="pic" style="background-image:url('{{item.avatarUrl}}')"></navigator>
-                    <navigator hover-class="none" url="/pages/mydetail/mydetail?dynamicId={{item.dynamicId}}" class="info">
+                    <navigator hover-class="none" url="/pages/ta/ta?token={{item.otherToken}}" class="pic" style="background-image:url('{{item.userAvatarUrl}}')"></navigator>
+                    <view bindtap="openUrl" data-dynamicId="{{item.dynamicId}}" class="info">
                         <view class="top">
-                            <text>{{item.name}}</text>
+                            <text>{{item.user_Name}}</text>
                             <image class="sex" src="../images/nv.png" wx:if="{{item.gender==2}}"></image>
                             <image class="sex" src="../images/nan.png" wx:if="{{item.gender==1}}"></image>
                             <text>得到了你的评论</text>
@@ -44,7 +44,7 @@
                         <view class="bottom">
                             {{item.createTime}}
                         </view>
-                    </navigator>
+                    </view>
                 </view>
                 <!--<view class="right" style="background-image:url('http://zb.luckyme.com.cn/pic3.png')"></view>-->
             </view>

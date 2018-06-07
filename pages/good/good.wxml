@@ -8,7 +8,7 @@
     </view>
     <view class="hr"></view>
     <scroll-view class="content" scroll-y bindscrolltolower="Gobottom">
-        <view class="item-box" wx:for="{{data}}" wx:for-item="item" wx:if="{{toggle==true}}">
+        <view class="item-box" wx:for="{{data}}" wx:for-item="item" wx:key="" wx:if="{{toggle==true}}">
             <view class="hr"></view>
             <view class="item">
                 <view class="left">
@@ -28,12 +28,12 @@
                 <!--<view class="right" style="background-image:url('http://zb.luckyme.com.cn/pic3.png')"></view>-->
             </view>
         </view>
-        <view class="item-box" wx:for="{{data}}" wx:for-item="item" wx:if="{{toggle!=true}}">
+        <view class="item-box" wx:for="{{data}}" wx:key=""  wx:for-item="item" wx:if="{{toggle!=true}}">
             <view class="hr"></view>
             <view class="item">
                 <view class="left">
                     <navigator hover-class="none" url="/pages/ta/ta?token={{item.otherToken}}" class="pic" style="background-image:url('{{item.avatar}}')"></navigator>
-                    <navigator hover-class="none" url="/pages/mydetail/mydetail?dynamicId={{item.dynamicId}}" class="info">
+                    <navigator hover-class="none" url="/pages/detail/detail?dynamicId={{item.dynamicId}}" class="info">
                         <view class="top">
                             <text>{{item.name}}</text>
                             <image class="sex" src="../images/nv.png" wx:if="{{item.gender==2}}"></image>

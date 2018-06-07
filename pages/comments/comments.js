@@ -61,6 +61,35 @@ Page({
             }
         })
     },
+    openUrl:function (e) {
+      var that = this
+        console.log(e.currentTarget.dataset.dynamicid)
+
+        wx.request({
+            url: app.globalData.url + '/dynamic/getDetail',
+            data: {
+                token: that.data.token,
+                dynamicId: e.currentTarget.dataset.dynamicid
+            },
+            method: 'GET',
+            success: function (res) {
+                console.log("res.data:::::::")
+                console.log(res.data)
+                if(res.data.body.dynamic.token!==that.data.token){
+                    console.log("不是我的文章")
+                    wx.navigateTo({
+                        url: '/pages/detail/detail?dynamicId='+e.currentTarget.dataset.dynamicid
+                    })
+                }else {
+                    console.log("是我的文章")
+                    wx.navigateTo({
+                        url: '/pages/mydetail/mydetail?dynamicId='+e.currentTarget.dataset.dynamicid
+                    })
+                }
+            }
+        })
+
+    },
     MyCommnet:function () {
         var that=this
         wx.request({

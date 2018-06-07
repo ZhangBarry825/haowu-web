@@ -63,6 +63,7 @@ page::-webkit-scrollbar {
 }
 .images .iamge-item {
   max-width: 100%;
+  width: 95%;
 }
 .bottom {
   background-color: white;
@@ -128,6 +129,7 @@ page::-webkit-scrollbar {
   background-size: 100% 100%;
 }
 .page-bottom .right {
+  border-radius: 2px;
   display: flex;
   justify-content: center;
   width: 150rpx;

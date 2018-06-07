@@ -17,14 +17,14 @@ Page({
             itemList: ['送物', '换物'],
             success: function (res) {
                 if (!res.cancel) {
-                    // console.log(res.tapIndex)
-                    if (res.tapIndex == 0) {
+                    console.log(res.tapIndex)
+                    if (res.tapIndex == 1) {
                         wx.navigateTo({
-                            url: '/pages/publish/publish'
+                            url: '/pages/publish/publish?type=1'
                         })
-                    } else {
+                    } else if (res.tapIndex == 0) {
                         wx.navigateTo({
-                            url: '/pages/give/give'
+                            url: '/pages/publish/publish?type=2'
                         })
                     }
                 }
@@ -66,7 +66,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        this.ifJump()
         var that = this
         wx.request({
             url: app.globalData.url + '/user/userInfo',
@@ -77,6 +77,8 @@ Page({
                 'content-type': 'application/json' // 默认值
             },
             success: function (res) {
+
+                console.log("个人信息：：：：")
                 console.log(res.data)
                 that.setData({
                     num: {
@@ -84,12 +86,40 @@ Page({
                         commentCount: res.data.body[0].commentCount,
                         releaseCount: res.data.body[0].releaseCount
                     }
-
+                })
+                that.setData({
+                    userInfo: {
+                        avatarUrl:res.data.body[0].avatarUrl,
+                        nickName:res.data.body[0].nickName,
+                        gender:res.data.body[0].gender,
+                        country:res.data.body[0].country,
+                        province:res.data.body[0].province,
+                        city:res.data.body[0].city,
+                    }
+                })
+                wx.setStorage({
+                    key: "userInfo",
+                    data: {
+                        avatarUrl:res.data.body[0].avatarUrl,
+                        nickName:res.data.body[0].nickName,
+                        gender:res.data.body[0].gender,
+                        country:res.data.body[0].country,
+                        province:res.data.body[0].province,
+                        city:res.data.body[0].city,
+                    }
                 })
             }
         })
     },
-
+    ifJump:function () {
+        console.log("ifJump")
+        console.log(wx.getStorageSync('userInfo'))
+        if(wx.getStorageSync('userInfo')==undefined){
+            wx.navigateTo({
+                url: '/pages/getAuth/getAuth'
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面显示
      */

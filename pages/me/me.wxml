@@ -11,7 +11,7 @@
                         <image class="sex" src="../images/nv.png" wx:if="{{userInfo.gender==0}}"></image>
                         <image class="sex" src="../images/nan.png" wx:if="{{userInfo.gender==1}}"></image>
                     </view>
-                    <view class='address'>上海市闵行区</view>
+                    <view class='address'>{{userInfo.province}} {{userInfo.city}}</view>
                 </view>
             </view>
             <view class='item-top-type'>

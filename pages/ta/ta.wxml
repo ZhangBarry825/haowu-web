@@ -10,7 +10,7 @@
                         <image class="sex" src="../images/nan.png" wx:if="{{itsInfo.gender==1}}"></image>
                         <image class="sex" src="../images/nv.png" wx:if="{{itsInfo.gender!=1}}"></image>
                     </view>
-                    <view class='address'>上海市闵行区</view>
+                    <view class='address'>{{itsInfo.province}} {{itsInfo.city}}</view>
                 </view>
             </view>
             <view class='item-top-type'>
@@ -69,41 +69,43 @@
             </view>
             <navigator hover-class="none" url="/pages/detail/detail?dynamicId={{item.dynamicId}}" class="item-content">
                 <view class="content-pic">
-                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box one"
-                          wx:if="{{item.imgsCount==1}}">
-                        <image mode="aspectFit"  class="imageOne" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>
+                    <view class="pic-box one" wx:if="{{item.imgsCount==1}}">
+                        <image class="imageOne" src="{{item.imgs[0]+'/0'}}"
+                               wx:if="{{image!=''}}" bindload="imageLoad" data-index="{{ index }}"
+                               style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"
+                        ></image>
                     </view>
                     <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box two"
                           wx:if="{{item.imgsCount==2}}">
-                        <view class="imageTwo" style="background-image:url('{{image+'/360'}}')"
+                        <view class="imageTwo" style="background-image:url('{{image+'/0'}}')"
                               wx:if="{{image!=''}}"></view>
-                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     </view>
                     <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box three"
                           wx:if="{{item.imgsCount==3}}">
-                        <view class="imageThree" style="background-image:url('{{image+'/360'}}')"
+                        <view class="imageThree" style="background-image:url('{{image+'/0'}}')"
                               wx:if="{{image!=''}}"></view>
-                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     </view>
                     <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box four"
                           wx:if="{{item.imgsCount==4}}">
-                        <view class="imageFour" style="background-image:url('{{image+'/360'}}')"
+                        <view class="imageFour" style="background-image:url('{{image+'/0'}}')"
                               wx:if="{{image!=''}}"></view>
-                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     </view>
                     <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box more"
                           wx:if="{{item.imgsCount>4}}">
-                        <view class="imageMore" style="background-image:url('{{image+'/360'}}')"
+                        <view class="imageMore" style="background-image:url('{{image+'/0'}}')"
                               wx:if="{{image!=''}}"></view>
-                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     </view>
                     <!--<view  wx:for="{{item.imgs}}" wx:for-item="image" wx:for-key="key" class="pic-box four" wx:if="{{item.imgsCount==2}}">-->
-                    <!--&lt;!&ndash;<view class="image one" style="background-image:url('{{image+'/360'}}')"  wx:if="{{image!=''}}"></view>&ndash;&gt;-->
-                    <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    <!--&lt;!&ndash;<view class="image one" style="background-image:url('{{image+'/0'}}')"  wx:if="{{image!=''}}"></view>&ndash;&gt;-->
+                    <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     <!--</view>-->
                     <!--<view  wx:for="{{item.imgs}}" wx:for-item="image" wx:for-key="key" class="pic-box nine" wx:if="{{item.imgsCount==2}}">-->
-                    <!--&lt;!&ndash;<view class="image one" style="background-image:url('{{image+'/360'}}')"  wx:if="{{image!=''}}"></view>&ndash;&gt;-->
-                    <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    <!--&lt;!&ndash;<view class="image one" style="background-image:url('{{image+'/0'}}')"  wx:if="{{image!=''}}"></view>&ndash;&gt;-->
+                    <!--<image class="image" src="{{image+'/0'}}" wx:if="{{image!=''}}"></image>-->
                     <!--</view>-->
                     <!--<view class="image" style="background-image:url('http://zb.luckyme.com.cn/pic5.png')"></view>-->
                 </view>
