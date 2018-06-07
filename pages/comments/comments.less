@@ -1,0 +1,107 @@
+/* pages/home/home.wxss */
+page {
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+}
+
+page::-webkit-scrollbar {
+  display: none;
+}
+
+.hr {
+  z-index: 0;
+  width: 100%;
+  content: " ";
+  transform: scaleY(0.5);
+  border-bottom: 1px solid #e5e5e5;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+}
+
+.toggle {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  //border-top: 1px solid gainsboro;
+  font-size: ~"35rpx";
+  padding-top: ~"20rpx";
+  .now {
+    color: #ff7170;
+    border-bottom: 2px solid #ff7170;
+    padding-bottom: ~"20rpx";
+  }
+}
+
+.content {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin-top: ~"105rpx";
+  padding-bottom: ~"105rpx";
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  .item-box {
+    background-color: white;
+    .item {
+      //border-top: 1px solid gainsboro;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: ~"20rpx";
+      align-items: center;
+      .left {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .pic {
+          border-radius: 50%;
+          width: ~"100rpx";
+          height: ~"100rpx";
+          background-position: center center;
+          background-size: 100% 100%;
+        }
+        .info {
+          margin-left: ~"30rpx";
+          padding-top: ~"10rpx";
+          padding-bottom: ~"10rpx";
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .top {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            font-size: ~"30rpx";
+            color: gray;
+            .sex {
+              width: ~"50rpx";
+              height: ~"50rpx";
+              background-position: center center;
+              background-size: 100% 100%;
+            }
+          }
+          .bottom {
+            font-size: ~"30rpx";
+            color: gray;
+          }
+        }
+      }
+      .right {
+        width: ~"120rpx";
+        height: ~"120rpx";
+        background-position: center center;
+        background-size: 100% 100%;
+      }
+    }
+  }
+}

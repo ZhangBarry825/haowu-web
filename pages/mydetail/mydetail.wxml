@@ -1,0 +1,107 @@
+<!--pages/home/home.wxml-->
+<view class="page">
+    <view class='item-top'>
+        <view hover-class="none" open-type="redirect"  class='item-top-info'>
+            <view class='pic' style="background-image:url('{{data.userinfo.avatarUrl}}')"></view>
+            <view class='name-info'>
+                <view class='name'>{{data.userinfo.nickName}}</view>
+                <view class='time'>{{data.dynamic.createTime}}</view>
+            </view>
+        </view>
+        <view class='item-top-type'>
+            <image class="item-top-pic" src="../images/change.png" wx:if="{{data.dynamic.type==1}}"></image>
+            <image class='item-top-pic' src="../images/give1.png" wx:if="{{data.dynamic.type==2}}"></image>
+            <image class='item-top-pic' src="../images/give2.png" wx:if="{{data.dynamic.type==2}}"></image>
+        </view>
+    </view>
+    <view class="content-text">
+        {{data.dynamic.content}}
+    </view>
+    <view class="images">
+        <image class="iamge-item" mode="widthFix" wx:if="{{item!='/0'}}" wx:for="{{data.dynamic.imgs}}" wx:for-item="item" wx:for-index="index" src="{{item}}" bindtap="previewImage" data-src="{{item}}"></image>
+    </view>
+    <view class="bottom">
+        <wiew class="address">{{data.dynamic.address}}</wiew>
+        <text class="info" decode="{{true}}">获赞{{data.dynamic.praiseCount}}&nbsp;&nbsp;&nbsp;&nbsp;评论{{data.dynamic.commentCount}}</text>
+    </view>
+
+    <view hover-class="none" open-type="redirect" class="info">
+        <view class="left">
+            <view class="name">{{data.userinfo.nickName}}</view>
+            <view class="time">来到钦家第{{data.userinfo.hascreated}}天</view>
+            <text class="num" decode="{{true}}">{{data.userinfo.praiseCount}} 获赞&nbsp;&nbsp;&nbsp;{{data.userinfo.commentCount}} 评论&nbsp;&nbsp;&nbsp;{{data.userinfo.releaseCount}} 发布</text>
+        </view>
+        <view class="right">
+            <view class="pic" style="background-image:url('{{data.userinfo.avatarUrl}}')"></view>
+        </view>
+    </view>
+
+    <view class="comments">
+        <view class="line">评论</view>
+
+
+
+        <view class="item" wx:for="{{data.comments}}" wx:for-item="item">
+
+            <view class="first">
+                <view class="pic" style="background-image:url('{{item.avatarUrl}}')"></view>
+                <view class="info" bindtap="returnComm" data-token="{{item.otherToken}}" data-name="{{item.user_Name}}"data-id="{{item.id}}">
+                    <view class="name">{{item.user_Name}}</view>
+                    <view class="content">
+                        {{item.content}}
+                    </view>
+                    <view class="time">{{item.hasCommented}}</view>
+                </view>
+            </view>
+
+            <view class="respond" wx:for="{{item.children}}" wx:for-item="child" >
+                <view class="pic" style="background-image:url('{{child.avatarUrl}}')"></view>
+                <view class="info" bindtap="returnComm" data-token="{{child.otherToken}}" data-name="{{child.user_Name}}" data-id="{{item.id}}">
+                    <view class="name">{{child.user_Name}}</view>
+                    <view class="content">回复@{{child.otherName}}：{{child.content}}</view>
+                    <view class="time">{{child.hasCommented}}</view>
+                </view>
+            </view>
+        </view>
+
+        <!--<view class="respond">-->
+        <!--<view class="pic" style="background-image:url('http://zb.luckyme.com.cn/pic01.png')"></view>-->
+        <!--<view class="info">-->
+        <!--<view class="name">大韩1988</view>-->
+        <!--<view class="content">回复@九妹儿：点赞，加十字评论哦</view>-->
+        <!--<view class="time">50分钟前</view>-->
+        <!--</view>-->
+        <!--</view>-->
+
+
+        <!--<view class="item">-->
+        <!--<view class="pic" style="background-image:url('http://zb.luckyme.com.cn/pic1.png')"></view>-->
+        <!--<view class="info">-->
+        <!--<view class="name">九妹儿</view>-->
+        <!--<view class="content">喜欢，会是我的吗？留言+1</view>-->
+        <!--<view class="time">2小时前</view>-->
+        <!--</view>-->
+        <!--</view>-->
+
+
+    </view>
+
+
+    <view class="page-bottom" bindtap="open" wx:if="{{data.dynamic.status==1}}">
+        <view class="text">下架</view>
+    </view>
+    <view class="page-bottom hasClosed" wx:if="{{data.dynamic.status==2}}">
+        <view class="text">已下架，去看看别的吧~</view>
+    </view>
+
+    <view class="top-box" wx:if="{{ifReturnComm}}">
+        <view class="top">
+            <textarea placeholder="回复@{{returnName}}" adjust-position="false" focus="{{focus}}" value="{{returnText}}" bindinput="bindReturn"></textarea>
+            <view class="button-sp-area">
+                <button class="weui-btn mini-btn quxiao" type="default" size="mini" bindtap="unComment">取消</button>
+                <button class="weui-btn mini-btn tijiao" type="warn" size="mini" bindtap="subReturnComm" >提交</button>
+            </view>
+
+        </view>
+    </view>
+</view>

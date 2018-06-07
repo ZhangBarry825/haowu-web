@@ -1,0 +1,105 @@
+<!--pages/home/home.wxml-->
+<view class="page">
+    <scroll-view class="dex" scroll-y bindscrolltolower="Gobottom">
+        <view class='top'>
+            <view class='now' wx:if="{{toggle==0}}">全部</view>
+            <view wx:if="{{toggle==1||toggle==2}}" bindtap="toggle" data-num="0">全部</view>
+            <view class='now' wx:if="{{toggle==2}}">送物</view>
+            <view wx:if="{{toggle==1||toggle==0}}" bindtap="toggle" data-num="2">送物</view>
+            <view class='now' wx:if="{{toggle==1}}">换物</view>
+            <view wx:if="{{toggle==0||toggle==2}}" bindtap="toggle" data-num="1">换物</view>
+        </view>
+        <view class='content'>
+            <view class='item' wx:for="{{data}}" wx:for-item="item" wx:key="index" wx:if="{{item.status==1}}">
+                <view class='item-top' wx:if="{{item.type==1}}">
+                    <navigator hover-class="none" url="/pages/ta/ta?token={{item.userinfo.token}}"
+                               class='item-top-info'>
+                        <image class='pic' src="{{item.userinfo.avatarUrl}}"></image>
+                        <view class='name-info'>
+                            <view class='name'>{{item.userinfo.nickName}}</view>
+                            <view class='time'>{{item.createTime}}</view>
+                        </view>
+                    </navigator>
+                    <view class='item-top-type'>
+                        <image class='item-top-pic' src="../images/change.png"></image>
+                    </view>
+                </view>
+                <view class='item-top' wx:if="{{item.type==2}}">
+                    <navigator hover-class="none" url="/pages/ta/ta?token={{item.userinfo.token}}"
+                               class='item-top-info'>
+                        <image class='pic' src="{{item.userinfo.avatarUrl}}"></image>
+                        <view class='name-info'>
+                            <view class='name'>{{item.userinfo.nickName}}</view>
+                            <view class='time'>{{item.createTime}}</view>
+                        </view>
+                    </navigator>
+                    <view class='item-top-type'>
+                        <image class='item-top-pic' src="../images/give1.png"></image>
+                        <image class='item-top-pic' src="../images/give2.png"></image>
+                    </view>
+                </view>
+
+                <navigator hover-class="none" url="/pages/detail/detail?dynamicId={{item.dynamicId}}"
+                           class="item-content" wx:if="{{item.status==1}}">
+                    <view class="content-pic">
+                        <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box one"
+                              wx:if="{{item.imgsCount==1}}">
+                            <image mode="aspectFit" class="imageOne" src="{{image+'/360'}}"
+                                   wx:if="{{image!=''}}"></image>
+                        </view>
+                        <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box two"
+                              wx:if="{{item.imgsCount==2}}">
+                            <view class="imageTwo" style="background-image:url('{{image+'/360'}}')"
+                                  wx:if="{{image!=''}}"></view>
+                            <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        </view>
+                        <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box three"
+                              wx:if="{{item.imgsCount==3}}">
+                            <view class="imageThree" style="background-image:url('{{image+'/360'}}')"
+                                  wx:if="{{image!=''}}"></view>
+                            <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        </view>
+                        <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box four"
+                              wx:if="{{item.imgsCount==4}}">
+                            <view class="imageFour" style="background-image:url('{{image+'/360'}}')"
+                                  wx:if="{{image!=''}}"></view>
+                            <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        </view>
+                        <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box more"
+                              wx:if="{{item.imgsCount>4}}">
+                            <view class="imageMore" style="background-image:url('{{image+'/360'}}')"
+                                  wx:if="{{image!=''}}"></view>
+                            <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                        </view>
+                    </view>
+                    <view class="content-text">{{item.content}}</view>
+                </navigator>
+                <view class="hr"></view>
+                <view class="bottom">
+                    <wiew class="address">{{item.address}}</wiew>
+                    <text class="info" decode="{{true}}">获赞{{item.praiseCount}}&nbsp;&nbsp;&nbsp;&nbsp;评论{{item.commentCount}}
+                    </text>
+                </view>
+            </view>
+        </view>
+        <view class="bar">
+            <view class="left" open-type="redirect">
+                <image class="pic" src="../images/home.png"></image>
+                <view class="text">
+                    首页
+                </view>
+            </view>
+            <view class="middle">
+                <image class="pic" src="../images/center.png" bindtap="open"></image>
+            </view>
+            <!--<navigator class="right" url="/pages/me/me" open-type="redirect" bindtap="isLogin" hover-class="none">-->
+            <navigator class="right" url="/pages/me/me" open-type="redirect" hover-class="none">
+                <image class="pic" src="../images/me1.png"></image>
+                <view class="text">
+                    我的
+                </view>
+            </navigator>
+        </view>
+        <button class="clearStorage" bindtap="clearStorage">清除localStorage</button>
+    </scroll-view>
+</view>

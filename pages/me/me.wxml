@@ -1,0 +1,148 @@
+<!--pages/home/me.wxml-->
+<view class="page">
+    <view class="hr"></view>
+    <view class="info head">
+        <view class='item-top'>
+            <view class='item-top-info'>
+                <view class='pic' style="background-image:url('{{userInfo.avatarUrl}}')"></view>
+                <view class='name-info'>
+                    <view class='name'>
+                        <view class="text">{{userInfo.nickName}}</view>
+                        <image class="sex" src="../images/nv.png" wx:if="{{userInfo.gender==0}}"></image>
+                        <image class="sex" src="../images/nan.png" wx:if="{{userInfo.gender==1}}"></image>
+                    </view>
+                    <view class='address'>上海市闵行区</view>
+                </view>
+            </view>
+            <view class='item-top-type'>
+                <image class="item-top-pic" src="../images/erweima.png" bindtap="previewImage" data-src="../images/erweima.png"></image>
+            </view>
+        </view>
+        <view class="num">
+            <navigator hover-class="none" url="/pages/good/good" class="goods">
+                <view class="num">{{num.praiseCount}}</view>
+                <view class="text">获赞</view>
+            </navigator>
+            <navigator hover-class="none" url="/pages/comments/comments" class="comments">
+                <view class="num">{{num.commentCount}}</view>
+                <view class="text">评论</view>
+            </navigator>
+            <view url="/pages/publish/publish" class="publish">
+                <view class="num">{{num.releaseCount}}</view>
+                <view class="text">发布</view>
+            </view>
+        </view>
+    </view>
+    <!--<view class="toggle">-->
+    <!--<view class="now" wx:if="{{toggle}}" >我的换物</view>-->
+    <!--<view  wx:if="{{!toggle}}" bindtap="changeToggle">我的换物</view>-->
+    <!--<view wx:if="{{toggle}}" bindtap="changeToggle" >我的送物</view>-->
+    <!--<view class="now"  wx:if="{{!toggle}}">我的送物</view>-->
+    <!--</view>-->
+    <!--<view class="hr"></view>-->
+    <!--<view class='content'>-->
+    <!--<view class='item'>-->
+    <!--<view class='item-top'>-->
+    <!--<view class='item-top-info'>-->
+    <!--<view class='pic' style="background-image:url('http://zb.luckyme.com.cn/pic02.png')"></view>-->
+    <!--<view class='name-info'>-->
+    <!--<view class='name'>大韩1988</view>-->
+    <!--<view class='time'>35分钟前</view>-->
+    <!--</view>-->
+    <!--</view>-->
+    <!--<view class='item-top-type'>-->
+    <!--<view class="item-top-pic" style="background-image:url('http://zb.luckyme.com.cn/change.png')"></view>-->
+    <!--</view>-->
+    <!--</view>-->
+    <!--<navigator hover-class="none" url="/pages/mydetail/mydetail" class="item-content">-->
+    <!--<view class="content-pic">-->
+    <!--<view class="image" style="background-image:url('http://zb.luckyme.com.cn/pic1.png')"></view>-->
+    <!--<view class="image" style="background-image:url('http://zb.luckyme.com.cn/pic4.png')"></view>-->
+    <!--<view class="image" style="background-image:url('http://zb.luckyme.com.cn/pic5.png')"></view>-->
+    <!--</view>-->
+    <!--<view class="content-text">标准型微胖女孩儿，单纯、善良、爱笑、易满足，求一位180+的男孩儿~~~</view>-->
+    <!--</navigator>-->
+    <!--<view class="hr"></view>-->
+    <!--<view class="bottom">-->
+    <!--<wiew class="address">上海市闵行梅美资产工业园区</wiew>-->
+    <!--<text class="info" decode="{{true}}">获赞26&nbsp;&nbsp;&nbsp;&nbsp;评论18</text>-->
+    <!--</view>-->
+    <!--</view>-->
+    <!--<view class='item'>-->
+    <!--<view class='item-top'>-->
+    <!--<view class='item-top-info'>-->
+    <!--<view class='pic' style="background-image:url('http://zb.luckyme.com.cn/pic01.png')"></view>-->
+    <!--<view class='name-info'>-->
+    <!--<view class='name'>大韩1988</view>-->
+    <!--<view class='time'>40分钟前</view>-->
+    <!--</view>-->
+    <!--</view>-->
+    <!--<view class='item-top-type'>-->
+    <!--<view class="item-top-pic" style="background-image:url('http://zb.luckyme.com.cn/give1.png')"></view>-->
+    <!--<view class="item-top-pic" style="background-image:url('http://zb.luckyme.com.cn/give2.png')"></view>-->
+    <!--</view>-->
+    <!--</view>-->
+    <!--<navigator hover-class="none" url="/pages/mydetail/mydetail" class="item-content">-->
+    <!--<view class="content-pic">-->
+    <!--<view class="image" style="background-image:url('http://zb.luckyme.com.cn/pic00.png')"></view>-->
+    <!--</view>-->
+    <!--<view class="content-text">标准型微胖女孩儿，单纯、善良、爱笑、易满足，求一位180+的男孩儿~~~</view>-->
+    <!--</navigator>-->
+    <!--<view class="hr"></view>-->
+    <!--<view class="bottom">-->
+    <!--<wiew class="address">上海市闵行梅美资产工业园区</wiew>-->
+    <!--<text class="info" decode="{{true}}">获赞26&nbsp;&nbsp;&nbsp;&nbsp;评论18</text>-->
+    <!--</view>-->
+    <!--</view>-->
+    <!--</view>-->
+
+    <view class="function">
+        <view class="weui-cells weui-cells_after-title">
+            <navigator hover-class="none" url="/pages/good/good" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image class="pic" src="../images/loved1.png"></image>
+                </view>
+                <view class="weui-cell__bd">我的赞</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator hover-class="none" url="/pages/comments/comments" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image class="pic" src="../images/comm1.png"></image>
+                </view>
+                <view class="weui-cell__bd">我的评论</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+
+        </view>
+    </view>
+    <view class="function">
+        <view class="weui-cells weui-cells_after-title">
+            <navigator hover-class="none" url="/pages/mypublish/mypublish" class="weui-cell weui-cell_access"
+                       hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image class="pic" src="../images/goods.png"></image>
+                </view>
+                <view class="weui-cell__bd">我的好物</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+    </view>
+
+    <view class="bar">
+        <navigator url="/pages/home/home" class="left" open-type="redirect" hover-class="none">
+            <image class="pic" src="../images/home1.png"></image>
+            <view class="text">
+                首页
+            </view>
+        </navigator>
+        <view class="middle">
+            <image class="pic" src="../images/center.png" bindtap="open"></image>
+        </view>
+        <view class="right" open-type="redirect">
+            <image class="pic" src="../images/me2.png"></image>
+            <view class="text">
+                我的
+            </view>
+        </view>
+    </view>
+</view>

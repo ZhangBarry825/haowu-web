@@ -1,0 +1,65 @@
+/* pages/getAuth/getAuth.wxss */
+
+.getAuth_container {
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
+
+.auth-head {
+  width: 750rpx;
+  text-align: center;
+}
+
+.auth-head image {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  width: 198rpx;
+  height: 72rpx;
+}
+
+.auth-text-title {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 25rpx;
+}
+
+.auth-text-title text {
+  font-size: 32rpx;
+  padding: 0 40rpx;
+}
+
+.auth-text-content {
+  display: flex;
+  align-items: center;
+  padding: 25rpx 40rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.auth-text-content image {
+  height: 15rpx;
+  width: 15rpx;
+  margin-right: 15rpx;
+}
+
+.getButton {
+  margin: 0 40rpx;
+  margin-top: 70rpx;
+  background-color: #fe7272;
+  color: #fff;
+  border-radius:3px;
+}
+
+.noGet {
+  width: 750rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fe7272;
+  margin-top: 30rpx; 
+}
+button::after{
+  border: none;
+}
+
+.button-hover {
+  background-color: rgba(254, 114, 114, 0.74);
+}

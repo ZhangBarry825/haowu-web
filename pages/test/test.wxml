@@ -1,0 +1,10 @@
+<!--pages/home/test.wxml-->
+<view class="page">
+    <scroll-view class="scroll-box" scroll-y bindscrolltolower="bottom" bindscrolltoupper="top">
+        <text wx:for="{{text}}" wx:for-item="item">
+            {{item}}
+        </text>
+    </scroll-view>
+    <!--<view class="box"></view>-->
+    <!--<view class="box1"></view>-->
+</view>

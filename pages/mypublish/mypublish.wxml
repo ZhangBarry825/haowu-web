@@ -1,0 +1,78 @@
+<!--pages/home/test.wxml-->
+<view class="page">
+    <scroll-view class='content' scroll-y bindscrolltolower="Gobottom">
+        <view class="toggle">
+            <view class="now" wx:if="{{toggle}}">我的换物</view>
+            <view wx:if="{{!toggle}}" bindtap="changeToggle">我的换物</view>
+            <view wx:if="{{toggle}}" bindtap="changeToggle">我的送物</view>
+            <view class="now" wx:if="{{!toggle}}">我的送物</view>
+        </view>
+        <view class='item' wx:for="{{data}}" wx:for-item="item" wx:key="index">
+            <view class='item-top' wx:if="{{item.type==1}}">
+                <view hover-class="none" class='item-top-info'>
+                    <image class='pic' src="{{item.userinfo.avatarUrl}}"></image>
+                    <view class='name-info'>
+                        <view class='name'>{{item.userinfo.nickName}}</view>
+                        <view class='time'>{{item.createTime}}</view>
+                    </view>
+                </view>
+                <view class='item-top-type'>
+                    <image class='item-top-pic' src="../images/change.png"></image>
+                </view>
+            </view>
+            <view class='item-top' wx:if="{{item.type==2}}">
+                <view hover-class="none" class='item-top-info'>
+                    <image class='pic' src="{{item.userinfo.avatarUrl}}"></image>
+                    <view class='name-info'>
+                        <view class='name'>{{item.userinfo.nickName}}</view>
+                        <view class='time'>{{item.createTime}}</view>
+                    </view>
+                </view>
+                <view class='item-top-type'>
+                    <image class='item-top-pic' src="../images/give1.png"></image>
+                    <image class='item-top-pic' src="../images/give2.png"></image>
+                </view>
+            </view>
+            <navigator hover-class="none" url="/pages/mydetail/mydetail?dynamicId={{item.dynamicId}}"
+                       class="item-content">
+                <view class="content-pic">
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box one"
+                          wx:if="{{item.imgsCount==1}}">
+                        <image mode="aspectFit" class="imageOne" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>
+                    </view>
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box two"
+                          wx:if="{{item.imgsCount==2}}">
+                        <view class="imageTwo" style="background-image:url('{{image+'/360'}}')"
+                              wx:if="{{image!=''}}"></view>
+                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    </view>
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box three"
+                          wx:if="{{item.imgsCount==3}}">
+                        <view class="imageThree" style="background-image:url('{{image+'/360'}}')"
+                              wx:if="{{image!=''}}"></view>
+                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    </view>
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box four"
+                          wx:if="{{item.imgsCount==4}}">
+                        <view class="imageFour" style="background-image:url('{{image+'/360'}}')"
+                              wx:if="{{image!=''}}"></view>
+                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    </view>
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box more"
+                          wx:if="{{item.imgsCount>4}}">
+                        <view class="imageMore" style="background-image:url('{{image+'/360'}}')"
+                              wx:if="{{image!=''}}"></view>
+                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    </view>
+                </view>
+                <view class="content-text">{{item.content}}</view>
+            </navigator>
+            <view class="hr"></view>
+            <view class="bottom">
+                <wiew class="address">{{item.address}}</wiew>
+                <text class="info" decode="{{true}}">获赞{{item.praiseCount}}&nbsp;&nbsp;&nbsp;&nbsp;评论{{item.commentCount}}
+                </text>
+            </view>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,55 @@
+<!--index.wxml-->
+<view class="page">
+    <view class="box">
+        <textarea placeholder="添加文字描述..."  auto-focus bindinput="bindChange"/>
+        <view class="overnum">
+            <view class="text" wx:if="{{!ifNum}}">{{textNum}}/100</view>
+            <view class="text red" wx:if="{{ifNum}}">{{textNum}}/100</view>
+        </view>
+        <view class="new">
+            <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                    <block wx:for="{{files}}" wx:key="*this">
+                        <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                            <image class="weui-uploader__img" src="{{item+'/360'}}" mode="aspectFill" />
+                        </view>
+                    </block>
+                </view>
+                <view class="weui-uploader__input-box" wx:if="{{ifSelect}}">
+                    <view class="weui-uploader__input" bindtap="upload_access" ></view>
+                </view>
+            </view>
+        </view>
+
+        <!--<view class="addpic">-->
+            <!--<image class="select" src="../images/addpic.png"  bindtap="choosePic"></image>-->
+        <!--</view>-->
+        <view class="addlocal" bindtap="chooseLocation">
+            <view class="left">
+                <image class="pic" src="../images/add.png"></image>
+                <view class="text"wx:if="{{!ifLocation}}">所在位置</view>
+                <view class="text"wx:if="{{ifLocation}}">{{location.name}}</view>
+            </view>
+            <view class="right"></view>
+        </view>
+    </view>
+    <navigator hover-class="none" url="" class="look-box" bindtap="openToast">
+        <view class="look">
+            <view class="left">
+                <image class="pic" src="../images/earth.png"></image>
+                <view class="text">所有人可见</view>
+            </view>
+            <view class="right"></view>
+        </view>
+    </navigator>
+
+    <view class="page__bd page__bd_spacing">
+        <button class="weui-btn" type="primary" bindtap="submit" wx:if="{{ifClick}}">发布</button>
+        <button class="weui-btn" type="primary" wx:if="{{!ifClick}}">发布</button>
+    </view>
+
+    <view class="bottomm">
+        发布即接受
+        <navigator hover-class="none" url="#" class="a">《钦家平台内容分享声明》</navigator>
+    </view>
+</view>

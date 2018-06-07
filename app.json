@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/test/test",
+    "pages/me/me",
+    "pages/ta/ta",
+    "pages/mypublish/mypublish",
+    "pages/comments/comments",
+    "pages/good/good",
+    "pages/publish/publish",
+    "pages/index/index",
+    "pages/mydetail/mydetail",
+    "pages/detail/detail",
+    "pages/logs/logs",
+    "pages/getAuth/getAuth"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+
+}

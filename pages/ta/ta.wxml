@@ -1,0 +1,121 @@
+<!--pages/home/me.wxml-->
+<view class="page">
+    <view class="info head">
+        <view class='item-top'>
+            <view class='item-top-info'>
+                <view class='pic' style="background-image:url('{{itsInfo.avatarUrl}}')"></view>
+                <view class='name-info'>
+                    <view class='name'>
+                        <view class="text">{{itsInfo.nickName}}</view>
+                        <image class="sex" src="../images/nan.png" wx:if="{{itsInfo.gender==1}}"></image>
+                        <image class="sex" src="../images/nv.png" wx:if="{{itsInfo.gender!=1}}"></image>
+                    </view>
+                    <view class='address'>上海市闵行区</view>
+                </view>
+            </view>
+            <view class='item-top-type'>
+                <image class="item-top-pic" src="../images/erweima.png" bindtap="previewImage" data-src="../images/erweima.png"></image>
+            </view>
+        </view>
+        <view class="num">
+            <view class="goods">
+                <view class="num">{{itsInfo.praiseCount}}</view>
+                <view class="text">获赞</view>
+            </view>
+            <view class="comments">
+                <view class="num">{{itsInfo.commentCount}}</view>
+                <view class="text">评论</view>
+            </view>
+            <view url="/pages/publish/publish" class="publish">
+                <view class="num">{{itsInfo.releaseCount}}</view>
+                <view class="text">发布</view>
+            </view>
+        </view>
+    </view>
+    <view class="toggle">
+        <view class="now" wx:if="{{toggle}}" >Ta的换物</view>
+        <view  wx:if="{{!toggle}}" bindtap="changeToggle">Ta的换物</view>
+        <view wx:if="{{toggle}}" bindtap="changeToggle" >Ta的送物</view>
+        <view class="now"  wx:if="{{!toggle}}">Ta的送物</view>
+    </view>
+    <view class="hr"></view>
+
+    <scroll-view class='content' scroll-y bindscrolltolower="Gobottom">
+        <view class='item' wx:for="{{data}}" wx:for-item="item" wx:key="index">
+            <view class='item-top' wx:if="{{item.type==1}}">
+                <view hover-class="none" class='item-top-info' >
+                    <image class='pic' src="{{item.userinfo.avatarUrl}}"></image>
+                    <view class='name-info'>
+                        <view class='name'>{{item.userinfo.nickName}}</view>
+                        <view class='time'>{{item.createTime}}</view>
+                    </view>
+                </view>
+                <view class='item-top-type'>
+                    <image class='item-top-pic' src="../images/change.png"></image>
+                </view>
+            </view>
+            <view class='item-top' wx:if="{{item.type==2}}">
+                <view hover-class="none"  class='item-top-info'>
+                    <image class='pic' src="{{item.userinfo.avatarUrl}}"></image>
+                    <view class='name-info'>
+                        <view class='name'>{{item.userinfo.nickName}}</view>
+                        <view class='time'>{{item.createTime}}</view>
+                    </view>
+                </view>
+                <view class='item-top-type'>
+                    <image class='item-top-pic' src="../images/give1.png"></image>
+                    <image class='item-top-pic' src="../images/give2.png"></image>
+                </view>
+            </view>
+            <navigator hover-class="none" url="/pages/detail/detail?dynamicId={{item.dynamicId}}" class="item-content">
+                <view class="content-pic">
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box one"
+                          wx:if="{{item.imgsCount==1}}">
+                        <image mode="aspectFit"  class="imageOne" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>
+                    </view>
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box two"
+                          wx:if="{{item.imgsCount==2}}">
+                        <view class="imageTwo" style="background-image:url('{{image+'/360'}}')"
+                              wx:if="{{image!=''}}"></view>
+                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    </view>
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box three"
+                          wx:if="{{item.imgsCount==3}}">
+                        <view class="imageThree" style="background-image:url('{{image+'/360'}}')"
+                              wx:if="{{image!=''}}"></view>
+                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    </view>
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box four"
+                          wx:if="{{item.imgsCount==4}}">
+                        <view class="imageFour" style="background-image:url('{{image+'/360'}}')"
+                              wx:if="{{image!=''}}"></view>
+                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    </view>
+                    <view wx:for="{{item.imgs}}" wx:for-item="image" wx:key="key" class="pic-box more"
+                          wx:if="{{item.imgsCount>4}}">
+                        <view class="imageMore" style="background-image:url('{{image+'/360'}}')"
+                              wx:if="{{image!=''}}"></view>
+                        <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    </view>
+                    <!--<view  wx:for="{{item.imgs}}" wx:for-item="image" wx:for-key="key" class="pic-box four" wx:if="{{item.imgsCount==2}}">-->
+                    <!--&lt;!&ndash;<view class="image one" style="background-image:url('{{image+'/360'}}')"  wx:if="{{image!=''}}"></view>&ndash;&gt;-->
+                    <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    <!--</view>-->
+                    <!--<view  wx:for="{{item.imgs}}" wx:for-item="image" wx:for-key="key" class="pic-box nine" wx:if="{{item.imgsCount==2}}">-->
+                    <!--&lt;!&ndash;<view class="image one" style="background-image:url('{{image+'/360'}}')"  wx:if="{{image!=''}}"></view>&ndash;&gt;-->
+                    <!--<image class="image" src="{{image+'/360'}}" wx:if="{{image!=''}}"></image>-->
+                    <!--</view>-->
+                    <!--<view class="image" style="background-image:url('http://zb.luckyme.com.cn/pic5.png')"></view>-->
+                </view>
+                <view class="content-text">{{item.content}}</view>
+            </navigator>
+            <view class="hr"></view>
+            <view class="bottom">
+                <wiew class="address">{{item.address}}</wiew>
+                <text class="info" decode="{{true}}">获赞{{item.praiseCount}}&nbsp;&nbsp;&nbsp;&nbsp;评论{{item.commentCount}}
+                </text>
+            </view>
+        </view>
+    </scroll-view>
+
+</view>

@@ -1,0 +1,311 @@
+/* pages/home/home.wxss */
+page {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  padding-bottom: 130rpx;
+}
+page::-webkit-scrollbar {
+  display: none;
+}
+.item-top {
+  border-top: 1px solid gainsboro;
+  padding: 20rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-top .item-top-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.item-top .item-top-info .name-info {
+  margin-left: 20rpx;
+  font-size: 35rpx;
+}
+.item-top .item-top-info .name-info .time {
+  font-size: 27rpx;
+  color: gray;
+}
+.item-top .item-top-info .pic {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-position: center center;
+  background-size: 100%;
+}
+.item-top .item-top-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.item-top .item-top-type .item-top-pic {
+  margin-left: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
+  background-position: center center;
+  background-size: 100%;
+}
+.content-text {
+  line-height: 45rpx;
+  padding: 20rpx;
+  font-size: 35rpx;
+  background-color: white;
+}
+.images {
+  background-color: white;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  text-align: center;
+}
+.images .iamge-item {
+  max-width: 100%;
+}
+.bottom {
+  background-color: white;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bottom .address {
+  font-size: 25rpx;
+  color: #66afc3;
+}
+.bottom .info {
+  margin: 0;
+  padding: 0;
+  color: gray;
+  font-size: 25rpx;
+}
+.page-bottom {
+  border-top: 1px solid gainsboro;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 20rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+.page-bottom .text {
+  font-size: 35rpx;
+  color: #ff7170;
+}
+.hasClosed {
+  border-top: 1px solid gainsboro;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 20rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  background-color: #bdbdbd;
+}
+.hasClosed .text {
+  font-size: 35rpx;
+  color: white;
+}
+.info {
+  background-color: white;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx;
+  align-items: center;
+}
+.info .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.info .left .name {
+  font-size: 35rpx;
+}
+.info .left .time {
+  font-size: 25rpx;
+  color: gray;
+}
+.info .left .num {
+  font-size: 30rpx;
+}
+.info .right .pic {
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+.comments {
+  margin-top: 20rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.comments .line {
+  border-bottom: 1px solid gainsboro;
+  padding: 20rpx;
+  font-size: 35rpx;
+}
+.comments .item .first {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-top: 1px solid gainsboro;
+}
+.comments .item .first .pic {
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+.comments .item .first .info {
+  margin: 0;
+  margin-left: 20rpx;
+  padding: 0;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.comments .item .first .info .name {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.comments .item .first .info .content {
+  font-size: 28rpx;
+  max-width: 600rpx;
+}
+.comments .item .first .info .time {
+  font-size: 23rpx;
+  color: gray;
+}
+.comments .item .respond {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 100rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-top: 1px solid gainsboro;
+}
+.comments .item .respond .pic {
+  width: 80rpx;
+  height: 80rpx;
+  background-position: center center;
+  background-size: 100% 100%;
+  border-radius: 50%;
+}
+.comments .item .respond .info {
+  margin: 0;
+  margin-left: 20rpx;
+  padding: 0;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.comments .item .respond .info .name {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.comments .item .respond .info .content {
+  font-size: 28rpx;
+  max-width: 500rpx;
+}
+.comments .item .respond .info .time {
+  font-size: 23rpx;
+  color: gray;
+}
+.comments .respond {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 100rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-top: 1px solid gainsboro;
+}
+.comments .respond .pic {
+  width: 80rpx;
+  height: 80rpx;
+  background-position: center center;
+  background-size: 100% 100%;
+  border-radius: 50%;
+}
+.comments .respond .info {
+  margin: 0;
+  margin-left: 20rpx;
+  padding: 0;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.comments .respond .info .name {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.comments .respond .info .content {
+  font-size: 28rpx;
+  max-width: 500rpx;
+}
+.comments .respond .info .time {
+  font-size: 23rpx;
+  color: gray;
+}
+.top-box {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(111, 111, 111, 0.5);
+  position: fixed;
+  top: 0;
+}
+.top-box .top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 20rpx;
+  width: 100%;
+  background-color: white;
+}
+.top-box .top textarea {
+  width: 100%;
+  font-size: 30rpx;
+}
+.top-box .top textarea::-webkit-scrollbar {
+  display: none;
+}
+.top-box .top .button-sp-area {
+  padding: 0;
+  text-align: right;
+}
+.top-box .top .button-sp-area .weui-btn {
+  margin-left: 10rpx;
+}
+.top-box .top .button-sp-area .tijiao {
+  background-color: #ff7170;
+}
+.top-box .top .button-sp-area .quxiao {
+  background-color: white;
+}

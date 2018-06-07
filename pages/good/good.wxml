@@ -1,0 +1,52 @@
+<!--pages/home/test.wxml-->
+<view class="page">
+    <view class="toggle">
+        <view class="now" wx:if="{{toggle}}">我收到的赞</view>
+        <view wx:if="{{!toggle}}" bindtap="changeToggle">我收到的赞</view>
+        <view wx:if="{{toggle}}" bindtap="changeToggle">我赞的</view>
+        <view class="now" wx:if="{{!toggle}}">我赞的</view>
+    </view>
+    <view class="hr"></view>
+    <scroll-view class="content" scroll-y bindscrolltolower="Gobottom">
+        <view class="item-box" wx:for="{{data}}" wx:for-item="item" wx:if="{{toggle==true}}">
+            <view class="hr"></view>
+            <view class="item">
+                <view class="left">
+                    <navigator hover-class="none" url="/pages/ta/ta?token={{item.otherToken}}" class="pic" style="background-image:url('{{item.avatar}}')"></navigator>
+                    <navigator hover-class="none" url="/pages/mydetail/mydetail?dynamicId={{item.dynamicId}}" class="info">
+                        <view class="top">
+                            <text>{{item.name}}</text>
+                            <image class="sex" src="../images/nv.png" wx:if="{{item.gender==2}}"></image>
+                            <image class="sex" src="../images/nan.png" wx:if="{{item.gender==1}}"></image>
+                            <text>赞了你的好物</text>
+                        </view>
+                        <view class="bottom">
+                            {{item.createTime}}
+                        </view>
+                    </navigator>
+                </view>
+                <!--<view class="right" style="background-image:url('http://zb.luckyme.com.cn/pic3.png')"></view>-->
+            </view>
+        </view>
+        <view class="item-box" wx:for="{{data}}" wx:for-item="item" wx:if="{{toggle!=true}}">
+            <view class="hr"></view>
+            <view class="item">
+                <view class="left">
+                    <navigator hover-class="none" url="/pages/ta/ta?token={{item.otherToken}}" class="pic" style="background-image:url('{{item.avatar}}')"></navigator>
+                    <navigator hover-class="none" url="/pages/mydetail/mydetail?dynamicId={{item.dynamicId}}" class="info">
+                        <view class="top">
+                            <text>{{item.name}}</text>
+                            <image class="sex" src="../images/nv.png" wx:if="{{item.gender==2}}"></image>
+                            <image class="sex" src="../images/nan.png" wx:if="{{item.gender==1}}"></image>
+                            <text>得到了你的赞</text>
+                        </view>
+                        <view class="bottom">
+                            {{item.createTime}}
+                        </view>
+                    </navigator>
+                </view>
+                <!--<view class="right" style="background-image:url('http://zb.luckyme.com.cn/pic3.png')"></view>-->
+            </view>
+        </view>
+    </scroll-view>
+</view>
